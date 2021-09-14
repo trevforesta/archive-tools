@@ -69,5 +69,12 @@ if __name__ == '__main__':
                 print('%s is not a valid path, please verify' % i)
                 sys.exit()
         printResults(dups)
+        Join = input('\n Remove duplicates? (y/n) \n')
+        if Join in ['yes', 'Yes']:
+            for file in dups: #for key(the IPAddress) and value(the occurrence of each IPAddress) in ip_attacks 
+                os.remove(file)
+        else:
+            print ("No Answer Given")
+
     else:
         print('Usage: python duplicate_checker.py folder or python duplicate_checker.py folder1 folder2 folder3')
