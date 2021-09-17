@@ -9,7 +9,7 @@ class DuplicateChecker:
         self.Cleaned_dirs = []; self.Total_bytes_saved = 0
         self.block_size = 65536; self.count_cleaned = 0
 
-    def welcome(self)->None:
+    def intro(self)->None:
         print('\n * Archive Duplicate Checker * \n')
         time.sleep(1)
         print(' * Scanning for duplicate files...\n')
@@ -54,7 +54,7 @@ class DuplicateChecker:
         print('-----------------------------------------------')
         
     def main(self)->None:
-        self.welcome();self.remove_files();self.removal_summary()
+        self.intro();self.remove_files();self.removal_summary()
 
 if __name__ == '__main__':
     App = DuplicateChecker()

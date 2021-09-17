@@ -1,4 +1,8 @@
-#Duplicate Checker - can find, list, and remove duplicate images that may have different names. 
+#Duplicate Checker - can find, list, and remove duplicate images that may have different names.
+
+#TODO - Combine this file with the new "DuplicateChecker.py"
+# Have it so that the (y/n) prompt leads to removal/deletion
+
 
 import os, sys
 import hashlib
@@ -19,8 +23,8 @@ def findDuplicate(parentFolder):
             else:
                 dups[file_hash] = [path]
     return dups
- 
- 
+
+
 # Joins two dictionaries
 def joinDicts(dict1, dict2):
     for key in dict2.keys():
@@ -28,8 +32,8 @@ def joinDicts(dict1, dict2):
             dict1[key] = dict1[key] + dict2[key]
         else:
             dict1[key] = dict2[key]
- 
- 
+
+
 def hashfile(path, blocksize = 65536):
     afile = open(path, 'rb')
     hasher = hashlib.md5()
@@ -39,8 +43,8 @@ def hashfile(path, blocksize = 65536):
         buf = afile.read(blocksize)
     afile.close()
     return hasher.hexdigest()
- 
- 
+
+
 def printResults(dict1):
     results = list(filter(lambda x: len(x) > 1, dict1.values()))
     if len(results) > 0:
@@ -51,11 +55,11 @@ def printResults(dict1):
             for subresult in result:
                 print('\t\t%s' % subresult)
             print('___________________')
- 
+
     else:
         print('No duplicate files found.')
- 
- 
+
+
 if __name__ == '__main__':
     if len(sys.argv) > 1:
         dups = {}
@@ -71,7 +75,7 @@ if __name__ == '__main__':
         printResults(dups)
         Join = input('\n Remove duplicates? (y/n) \n')
         if Join in ['yes', 'Yes']:
-            for file in dups: #for key(the IPAddress) and value(the occurrence of each IPAddress) in ip_attacks 
+            for file in dups: #for key(the IPAddress) and value(the occurrence of each IPAddress) in ip_attacks
                 os.remove(file)
         else:
             print ("No Answer Given")
