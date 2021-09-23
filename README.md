@@ -4,6 +4,9 @@
 
 Written in Python
 
--Metadata Tool
--Duplicate File checker
--Duplicate File removal
+Contents:
+- Metadata Tool
+- Duplicate File checker
+- Duplicate File removal
+- Image and Folder Formatter (ISO 8601) 
+- Archive "Pic of the Day"
