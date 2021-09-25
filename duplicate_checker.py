@@ -1,12 +1,15 @@
-#Duplicate Checker - can find, list, and remove duplicate images that may have different names.
+# -*- coding: utf-8 -*-
+# !/usr/local/bin/python3
 
-#TODO - Combine this file with the new "DuplicateChecker.py"
-# Have it so that the (y/n) prompt leads to removal/deletion
+# duplicate_checker.py - can find, list, and remove duplicate files that may have different names.
+# Author: Trevor Foresta
+# Date Last Modified: 09/24/2021
 
-
+# -- Import Statements --#
 import os, sys
 import hashlib
 
+# -- Function Definitions --#
 def findDuplicate(parentFolder):
     # Dups in format {hash:[names]}
     dups = {}
@@ -55,11 +58,19 @@ def printResults(dict1):
             for subresult in result:
                 print('\t\t%s' % subresult)
             print('___________________')
+            Join = input('\n Remove duplicate(s)? (y/n) \n')
+            if Join in ['y', 'Y']:
+                print(str(subresult) + " Deleted\n")
+                os.remove(subresult)
+            elif Join in ['n', 'N']:
+                continue
+            else:
+                print ("No Answer Given")
 
     else:
         print('No duplicate files found.')
 
-
+# ---- Main ----#
 if __name__ == '__main__':
     if len(sys.argv) > 1:
         dups = {}
@@ -73,12 +84,5 @@ if __name__ == '__main__':
                 print('%s is not a valid path, please verify' % i)
                 sys.exit()
         printResults(dups)
-        Join = input('\n Remove duplicates? (y/n) \n')
-        if Join in ['yes', 'Yes']:
-            for file in dups: #for key(the IPAddress) and value(the occurrence of each IPAddress) in ip_attacks
-                os.remove(file)
-        else:
-            print ("No Answer Given")
-
     else:
         print('Usage: python duplicate_checker.py folder or python duplicate_checker.py folder1 folder2 folder3')

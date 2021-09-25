@@ -1,6 +1,11 @@
+# -*- coding: utf-8 -*-
+# !/usr/local/bin/python3
 
-#Get Metadata - uses getexif to list tags and print metadata
+# get_metadata.py - uses getexif to list tags and print metadata
+# Author: Trevor Foresta
+# Date Last Modified: 09/24/2021
 
+# -- Import Statements --#
 from PIL import Image
 from PIL.ExifTags import TAGS
   
