@@ -12,15 +12,15 @@ import duplicate_checker, format_img, get_random_file
 class ArchiveTools:
     # Constructor
     def __init__(self, path):
-        self.path = path  
+        self.path = "path"
 
     def intro():
         print('___________________')
         print('\n* Archive Tools *')
         print('___________________')
         time.sleep(1)
-        self.path = input('\n Set Archive Path: ')
-        
+        path = input('\n Set Archive Path: ')
+        self.path = str(path)
         print('\nAvailable Tools: ')
         time.sleep(.1)
         print('• Duplicate Checker (d)')

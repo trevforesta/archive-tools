@@ -6,9 +6,24 @@
 # Date Last Modified: 09/24/2021
 
 # -- Import Statements --#
-from PIL import Image
-from PIL.ExifTags import TAGS
-  
+#from PIL import Image
+#from PIL.ExifTags import TAGS
+
+import exifread
+
+
+f_path  = str("C:\\Users\\Trevor\\Desktop\\cats")
+#str(input('\n Set Archive Path: '))
+os.chdir(f_path)
+def get_metadata():
+    with open('3.png', 'rb') as fh:
+        tags = exifread.process_file(fh, stop_tag="EXIF DateTimeOriginal")
+        dateTaken = tags["EXIF DateTimeOriginal"]
+        return dateTaken
+
+get_metadata()
+
+'''
 # open the image
 image = Image.open("img.jpg")
   
@@ -26,3 +41,4 @@ for tagid in exifdata:
     
     # printing the final result
     print(f"{tagname:25}: {value}")
+'''
